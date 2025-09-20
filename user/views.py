@@ -9,12 +9,12 @@ from user.permissions import IsAdminOrIfAuthenticatedReadOnly
 
 class CreateUserView(generics.CreateAPIView):
     serializer_class = UserSerializer
-    permission_classes = (AllowAny,)  # <- потрібно додати
+    permission_classes = (AllowAny,)
 
 
 class CreateTokenView(ObtainAuthToken):
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
-    permission_classes = (AllowAny,)  # <- потрібно додати
+    permission_classes = (AllowAny,)
 
 
 class ManageUserView(generics.RetrieveUpdateAPIView):
@@ -33,4 +33,3 @@ class GenreViewSet(
 ):
     authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAdminOrIfAuthenticatedReadOnly,)
-
